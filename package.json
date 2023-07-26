@@ -1,0 +1,9 @@
+{
+  "name": "misskey-invite-discord-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot to invite users to Misskey",
+  "main": "index.js",
+  "repository": "https://github.com/hal-shu-sato/misskey-invite-discord-bot.git",
+  "author": "ato lash <hal-shu-sato@users.noreply.github.com>",
+  "license": "MIT"
+}
