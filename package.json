@@ -2,7 +2,7 @@
   "name": "misskey-invite-discord-bot",
   "version": "1.0.0",
   "description": "A Discord bot to invite users to Misskey",
-  "main": "index.js",
+  "main": "build/index.js",
   "repository": "https://github.com/hal-shu-sato/misskey-invite-discord-bot.git",
   "author": "ato lash <hal-shu-sato@users.noreply.github.com>",
   "license": "MIT",
@@ -28,6 +28,10 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
+    "test": "ts-node src/index.ts",
+    "compile": "tsc -p .",
+    "prestart": "run-s compile",
+    "start": "node build/index.js",
     "lint": "run-s lint:prettier lint:eslint",
     "lint:prettier": "prettier --check .",
     "lint:eslint": "eslint --fix-dry-run .",
