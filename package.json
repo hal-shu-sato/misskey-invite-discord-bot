@@ -31,7 +31,7 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "test": "ts-node src/index.ts",
+    "test": "ts-node --esm src/index.ts",
     "compile": "tsc -p .",
     "prestart": "run-s compile",
     "start": "node build/index.js",
