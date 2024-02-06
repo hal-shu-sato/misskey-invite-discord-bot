@@ -41,7 +41,7 @@
     "fix": "run-s fix:prettier fix:eslint",
     "fix:prettier": "prettier --write .",
     "fix:eslint": "eslint --fix .",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.js": [
