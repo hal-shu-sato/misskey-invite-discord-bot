@@ -2,11 +2,31 @@
   "name": "misskey-invite-discord-bot",
   "version": "1.0.0",
   "description": "A Discord bot to invite users to Misskey",
-  "main": "build/index.js",
   "repository": "https://github.com/hal-shu-sato/misskey-invite-discord-bot.git",
-  "author": "ato lash <hal-shu-sato@users.noreply.github.com>",
   "license": "MIT",
+  "author": "ato lash <hal-shu-sato@users.noreply.github.com>",
   "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "ts-node --esm src/index.ts",
+    "compile": "tsc -p .",
+    "prestart": "run-s compile",
+    "start": "node build/index.js",
+    "lint": "run-s lint:prettier lint:eslint",
+    "lint:prettier": "prettier --check .",
+    "lint:eslint": "eslint --fix-dry-run .",
+    "fix": "run-s fix:prettier fix:eslint",
+    "fix:prettier": "prettier --write .",
+    "fix:eslint": "eslint --fix .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,json,yml,md,html,css,scss}": "prettier --write"
+  },
   "dependencies": {
     "axios": "^1.7.8",
     "discord.js": "^14.16.3",
@@ -29,28 +49,9 @@
     "lint-staged": "^15.2.10",
     "npm-run-all2": "^7.0.1",
     "prettier": "^3.4.1",
+    "prettier-plugin-packagejson": "^2.5.6",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.16.0"
-  },
-  "scripts": {
-    "test": "ts-node --esm src/index.ts",
-    "compile": "tsc -p .",
-    "prestart": "run-s compile",
-    "start": "node build/index.js",
-    "lint": "run-s lint:prettier lint:eslint",
-    "lint:prettier": "prettier --check .",
-    "lint:eslint": "eslint --fix-dry-run .",
-    "fix": "run-s fix:prettier fix:eslint",
-    "fix:prettier": "prettier --write .",
-    "fix:eslint": "eslint --fix .",
-    "prepare": "husky"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.{ts,tsx,json,yml,md,html,css,scss}": "prettier --write"
   },
   "packageManager": "yarn@1.22.22"
 }
