@@ -1,30 +1,19 @@
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import importPlugin from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
 import globals from 'globals';
-import path from 'path';
-import { configs as tseslintConfigs } from 'typescript-eslint';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import tseslint from 'typescript-eslint';
 
 export default [
   {
     ignores: ['node_modules/**/*', 'build/**/*'],
   },
-
   js.configs.recommended,
-  ...tseslintConfigs.recommended,
+  ...tseslint.configs.recommended,
   jsdoc.configs['flat/recommended'],
-  ...fixupConfigRules(
-    ...compat.extends('plugin:import/recommended', 'plugin:import/typescript'),
-  ),
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
   {
     languageOptions: {
       globals: {
