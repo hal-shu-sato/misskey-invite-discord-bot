@@ -5,7 +5,7 @@ import jsdoc from 'eslint-plugin-jsdoc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-export default [
+export default tseslint.config(
   {
     ignores: ['node_modules/**/*', 'build/**/*'],
   },
@@ -52,4 +52,4 @@ export default [
     },
   },
   eslintConfigPrettier,
-];
+);
