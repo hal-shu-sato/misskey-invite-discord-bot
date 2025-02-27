@@ -28,7 +28,7 @@
     "*.{ts,tsx,json,yml,md,html,css,scss}": "prettier --write"
   },
   "dependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.8.1",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "typescript": "^5.7.3"
